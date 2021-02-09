@@ -53,9 +53,8 @@ public class CSVReader_Writer {
 
         List<String> names=null;
 
-        BufferedReader reader = null;
-        try {
-            reader = Files.newBufferedReader(Paths.get("firstname_female.txt"));
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("firstname_female.txt")))
+        {
             names = reader.lines()
                     .flatMap(line -> Stream.of(line.split(",")))
                     .collect(Collectors.toList());
