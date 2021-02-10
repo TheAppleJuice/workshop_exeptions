@@ -83,15 +83,13 @@ public class NameService {
 	     * @param name
 	     */
 	    public void addMaleFirstName(String name) throws DuplicateNameException {
-			try {
+
 				if (maleFirstNames.contains(name))
 					throw new DuplicateNameException("Entered male first name already exists");
-				else
-					maleFirstNames.add(name);
+
+				maleFirstNames.add(name);
 				CSVReader_Writer.saveMaleNames(maleFirstNames);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+
 		}
 
 	    /**
